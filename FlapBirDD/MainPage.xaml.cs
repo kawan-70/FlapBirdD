@@ -8,7 +8,9 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
-
-	
+   private void Comessarr(object sender, EventArgs args)
+	{
+	Application.Current.MainPage = new novojogo();
+	}
 }
 
