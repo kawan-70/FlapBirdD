@@ -4,4 +4,31 @@
              x:Class="FlapBirDD.novojogo"
              Shell.NavBarIsVisible="false">
 
+    <Grid>
+    <Image Source="fundo.png"
+           Aspect="Fill"
+           HorizontalOptions="Fill"
+           VerticalOptions="Fill"/>
+
+    <Image x:Name="viao"
+           Source="viao.png"
+           HeightRequest="60"
+           WidthRequest="60"
+           HorizontalOptions="Start"/>
+
+    <Image Source="canoD1.png"
+           HeightRequest="300"
+           HorizontalOptions="End"
+           VerticalOptions="Start"/>
+
+    <Image Source="canoD2.png"
+           HeightRequest="300"
+           HorizontalOptions="End"
+           VerticalOptions="End"/>
+
+    <Image Source="chao.png"
+           WidthRequest="500"
+           HorizontalOptions="Fill"
+           VerticalOptions="End"/>
+         </Grid>
 </ContentPage>
