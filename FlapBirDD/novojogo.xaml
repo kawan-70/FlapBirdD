@@ -5,14 +5,18 @@
              Shell.NavBarIsVisible="false">
 
       <Grid>
-        <Image Source="fundo.png"
+         <Grid.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnGridClickd"/>
+         </Grid.GestureRecognizers>
+
+        <Image Source="espasol.jpg"
                Aspect="Fill"
                HorizontalOptions="Fill"
                VerticalOptions="Fill"/>
 
         <Image x:Name="viao"
                Source="viao.png"
-               HeightRequest="60"
+               HeightRequest="100"
                WidthRequest="60"
                HorizontalOptions="Start"/>
 
@@ -28,10 +32,7 @@
                HorizontalOptions="End"
                VerticalOptions="End"/>
 
-        <Image x:Name="chaoo"
-               Source="chao.png"
-               HorizontalOptions="Fill"
-               VerticalOptions="End"/>
+      
 
        <Frame x:Name="frameGameOver"
                HorizontalOptions="Fill"
@@ -40,7 +41,8 @@
                <Frame.GestureRecognizers>
                <TapGestureRecognizer Tapped="OnGameOverClicked"/>
                </Frame.GestureRecognizers>
-               <Image Source="over.png"/>
+               <Image Source="start.png"/>
        </Frame>
+
     </Grid>
 </ContentPage>

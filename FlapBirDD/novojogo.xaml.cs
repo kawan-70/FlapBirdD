@@ -3,11 +3,15 @@ namespace FlapBirDD;
 public partial class novojogo : ContentPage
 {
 	const int gravidade = 3;
-	const int tempoEntreFrames = 25;
+	const int tempoEntreFrames = 20;
 	bool morto = true;
 	double larguraJanela = 0;
 	double alturaJanela = 0;
 	int velocidade = 20;
+	const int maxTempoPulando = 2;
+    int TempoPulando = 0;
+	bool estaPulando = false;
+	const int forcaPulo = 40;
 
 
 	public novojogo()
@@ -19,6 +23,9 @@ public partial class novojogo : ContentPage
 	{
 		while (!morto)
 		{
+			if (estaPulando)
+			 AplicaPulo();
+			 else
 			AplicarGravidade();
 			await Task.Delay(tempoEntreFrames);
 			GerenciaCanos();
@@ -92,11 +99,24 @@ public partial class novojogo : ContentPage
 
 	bool VerificaColisaoChao()
 	{
-		var mixY = alturaJanela/2 - chaoo.HeightRequest;
+		var mixY = alturaJanela/2;
 		if (viao.TranslationY >=mixY)
 	 		return true;
 	 else
 			return false;
 	}
-
+	void AplicaPulo()
+	{
+		viao.TranslationY-= forcaPulo;
+		TempoPulando++;
+		if (TempoPulando >= maxTempoPulando)
+		{
+			estaPulando = false;
+			TempoPulando = 0;
+		}
+	} 
+	void OnGridClickd(object s,TappedEventArgs a)
+	{
+		estaPulando = true;
+	}
 }
