@@ -16,19 +16,20 @@
                WidthRequest="60"
                HorizontalOptions="Start"/>
 
-        <Image x:Name="canoD1"
-               Source="canoD1.png"
+        <Image x:Name="canod1"
+               Source="canod1.png"
                HeightRequest="300"
                HorizontalOptions="End"
                VerticalOptions="Start"/>
 
-        <Image x:Name="canoD2"
-               Source="canoD2.png"
+        <Image x:Name="canod2"
+               Source="canod2.png"
                HeightRequest="300"
                HorizontalOptions="End"
                VerticalOptions="End"/>
 
-        <Image Source="grama.png"
+        <Image x:Name="chaoo"
+               Source="chao.png"
                HorizontalOptions="Fill"
                VerticalOptions="End"/>
 
