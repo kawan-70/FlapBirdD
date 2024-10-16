@@ -22,13 +22,15 @@
 
         <Image x:Name="canod1"
                Source="canod1.png"
-               HeightRequest="300"
+               BackgroundColor="blue"
+               HeightRequest="380"
                HorizontalOptions="End"
                VerticalOptions="Start"/>
 
         <Image x:Name="canod2"
                Source="canod2.png"
-               HeightRequest="300"
+               HeightRequest="380"
+               BackgroundColor="blue"
                HorizontalOptions="End"
                VerticalOptions="End"/>
 

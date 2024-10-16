@@ -4,14 +4,17 @@ public partial class novojogo : ContentPage
 {
 	const int gravidade = 3;
 	const int tempoEntreFrames = 20;
-	bool morto = true;
-	double larguraJanela = 0;
-	double alturaJanela = 0;
-	int velocidade = 20;
 	const int maxTempoPulando = 2;
-    int TempoPulando = 0;
-	bool estaPulando = false;
 	const int forcaPulo = 40;
+	const int AberturaMinima = 180;
+	bool morto = true;
+	bool estaPulando = false;
+	double larguraJanela = 0;
+	double alturaJanela = 10;
+	int velocidade = 50;
+    int TempoPulando = 1;
+	
+	
 
 
 	public novojogo()
@@ -58,6 +61,10 @@ public partial class novojogo : ContentPage
 		{
 			canod2.TranslationX = 100;
 			canod1.TranslationX = 100;
+			var alturaMax=-100;
+			var alturaMin=-canod2.HeightRequest;
+			canod1.TranslationY=Random.Shared.Next((int)alturaMin,(int)alturaMax);
+			canod2.TranslationY=canod1.TranslationY+AberturaMinima+canod2.HeightRequest;
 		}
 	}
 	void Inicializar()
