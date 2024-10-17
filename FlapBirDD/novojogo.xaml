@@ -8,38 +8,50 @@
          <Grid.GestureRecognizers>
           <TapGestureRecognizer Tapped="OnGridClickd"/>
          </Grid.GestureRecognizers>
+         
 
-        <Image Source="espasol.jpg"
+
+        <Image Source="espasol.png"
                Aspect="Fill"
                HorizontalOptions="Fill"
                VerticalOptions="Fill"/>
 
+
         <Image x:Name="viao"
                Source="viao.png"
                HeightRequest="100"
-               WidthRequest="60"
+               WidthRequest="90"
                HorizontalOptions="Start"/>
 
         <Image x:Name="canod1"
                Source="canod1.png"
                BackgroundColor="blue"
-               HeightRequest="380"
+               HeightRequest="680"
                HorizontalOptions="End"
                VerticalOptions="Start"/>
 
         <Image x:Name="canod2"
                Source="canod2.png"
-               HeightRequest="380"
+               HeightRequest="680"
                BackgroundColor="blue"
                HorizontalOptions="End"
                VerticalOptions="End"/>
 
+
+       <Label Text=""
+              TextColor="Blue"
+              FontSize="45"
+              x:Name="LabelLP"
+              FontFamily="CollegiateBlackFLF.ttf"
+              HorizontalOptions="End"
+              VerticalOptions="Start"/>
       
 
        <Frame x:Name="frameGameOver"
                HorizontalOptions="Fill"
                VerticalOptions="Fill"
                BackgroundColor="#77000000">
+
                <Frame.GestureRecognizers>
                <TapGestureRecognizer Tapped="OnGameOverClicked"/>
                </Frame.GestureRecognizers>

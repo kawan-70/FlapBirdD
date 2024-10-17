@@ -2,7 +2,7 @@ namespace FlapBirDD;
 
 public partial class novojogo : ContentPage
 {
-	const int gravidade = 3;
+	const int gravidade = 15;
 	const int tempoEntreFrames = 20;
 	const int maxTempoPulando = 2;
 	const int forcaPulo = 40;
@@ -11,12 +11,10 @@ public partial class novojogo : ContentPage
 	bool estaPulando = false;
 	double larguraJanela = 0;
 	double alturaJanela = 10;
-	int velocidade = 50;
+	int velocidade = 100;
     int TempoPulando = 1;
+	int score = 0;
 	
-	
-
-
 	public novojogo()
 	{
 		InitializeComponent();
@@ -61,10 +59,15 @@ public partial class novojogo : ContentPage
 		{
 			canod2.TranslationX = 100;
 			canod1.TranslationX = 100;
+			score++;
+			LabelLP.Text="canos: "+score.ToString("D3");
 			var alturaMax=-100;
 			var alturaMin=-canod2.HeightRequest;
 			canod1.TranslationY=Random.Shared.Next((int)alturaMin,(int)alturaMax);
 			canod2.TranslationY=canod1.TranslationY+AberturaMinima+canod2.HeightRequest;
+			
+			
+
 		}
 	}
 	void Inicializar()
