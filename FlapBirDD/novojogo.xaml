@@ -20,19 +20,23 @@
         <Image x:Name="viao"
                Source="viao.png"
                HeightRequest="100"
+               BackgroundColor="Red"
                WidthRequest="90"
-               HorizontalOptions="Start"/>
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
 
         <Image x:Name="canod1"
                Source="canod1.png"
                BackgroundColor="blue"
-               HeightRequest="680"
+               HeightRequest="660"
+               WidthRequest="60"
                HorizontalOptions="End"
                VerticalOptions="Start"/>
 
         <Image x:Name="canod2"
                Source="canod2.png"
-               HeightRequest="680"
+               HeightRequest="660"
+               WidthRequest="60"
                BackgroundColor="blue"
                HorizontalOptions="End"
                VerticalOptions="End"/>

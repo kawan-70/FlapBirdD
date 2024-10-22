@@ -12,9 +12,9 @@ public partial class novojogo : ContentPage
 	double larguraJanela = 0;
 	double alturaJanela = 10;
 	int velocidade = 100;
-    int TempoPulando = 1;
+	int TempoPulando = 1;
 	int score = 0;
-	
+
 	public novojogo()
 	{
 		InitializeComponent();
@@ -25,9 +25,9 @@ public partial class novojogo : ContentPage
 		while (!morto)
 		{
 			if (estaPulando)
-			 AplicaPulo();
-			 else
-			AplicarGravidade();
+				AplicaPulo();
+			else
+				AplicarGravidade();
 			await Task.Delay(tempoEntreFrames);
 			GerenciaCanos();
 			if (VerificaColisao())
@@ -60,18 +60,24 @@ public partial class novojogo : ContentPage
 			canod2.TranslationX = 100;
 			canod1.TranslationX = 100;
 			score++;
-			LabelLP.Text="canos: "+score.ToString("D3");
-			var alturaMax=-100;
-			var alturaMin=-canod2.HeightRequest;
-			canod1.TranslationY=Random.Shared.Next((int)alturaMin,(int)alturaMax);
-			canod2.TranslationY=canod1.TranslationY+AberturaMinima+canod2.HeightRequest;
-			
-			
+			LabelLP.Text = "canos: " + score.ToString("D3");
+			var alturaMax = -100;
+			var alturaMin = -canod2.HeightRequest;
+			canod1.TranslationY = Random.Shared.Next((int)alturaMin, (int)alturaMax);
+			canod2.TranslationY = canod1.TranslationY + AberturaMinima + canod2.HeightRequest;
+
+
 
 		}
 	}
 	void Inicializar()
 	{
+		canod1.TranslationX = -larguraJanela;
+		canod2.TranslationX = -larguraJanela;
+		viao.TranslationX = 0;
+		viao.TranslationY = 0;
+		score = 0;
+		GerenciaCanos();
 		morto = false;
 		viao.TranslationY = 0;
 	}
@@ -89,43 +95,75 @@ public partial class novojogo : ContentPage
 		if (!morto)
 		{
 			if (VerificaColisaoTeto() ||
-				VerificaColisaoChao())
-			{
+				VerificaColisaoChao() ||
+				VerificaColisaoCanoCima()||
+				VerificaColisaoCanoBaixo())
 				return true;
-			}
-				
-		}
-		return false;
-	}
-	 private bool VerificaColisaoTeto()
-	{
-		var minY =-alturaJanela/2;
-		if (viao.TranslationY <=minY)
 
-	 	    return true;
-	    else
+		}
+				return false;
+	}
+	private bool VerificaColisaoTeto()
+	{
+		var minY = -alturaJanela / 2;
+		if (viao.TranslationY <= minY)
+
+			return true;
+		else
 			return false;
 	}
 
 	bool VerificaColisaoChao()
 	{
-		var mixY = alturaJanela/2;
-		if (viao.TranslationY >=mixY)
-	 		return true;
-	 else
+		var mixY = alturaJanela / 2;
+		if (viao.TranslationY >= mixY)
+			return true;
+		else
 			return false;
 	}
+
+	bool VerificaColisaoCanoCima()
+	{
+		var posHviao = (larguraJanela/2)-(viao.WidthRequest/2);
+		var posVviao = (alturaJanela/2)-(viao.HeightRequest/2)+viao.TranslationY;
+		if (posHviao>= Math.Abs(canod1.TranslationX)-canod1.WidthRequest &&
+			posHviao<= Math.Abs(canod1.TranslationX)+canod1.WidthRequest &&
+			posVviao<= canod1.HeightRequest + canod1.TranslationY)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	   bool VerificaColisaoCanoBaixo()
+	{
+		var posHviao = (larguraJanela/2)-(viao.WidthRequest/2);
+		var posVviao = (alturaJanela/2)-(viao.HeightRequest/2)+viao.TranslationY;
+		if (posHviao>= Math.Abs(canod2.TranslationX)-canod2.WidthRequest &&
+			posHviao<= Math.Abs(canod2.TranslationX)+canod2.WidthRequest &&
+			posVviao<= canod2.HeightRequest + canod2.TranslationY)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	void AplicaPulo()
 	{
-		viao.TranslationY-= forcaPulo;
+		viao.TranslationY -= forcaPulo;
 		TempoPulando++;
 		if (TempoPulando >= maxTempoPulando)
 		{
 			estaPulando = false;
 			TempoPulando = 0;
 		}
-	} 
-	void OnGridClickd(object s,TappedEventArgs a)
+	}
+	void OnGridClickd(object s, TappedEventArgs a)
 	{
 		estaPulando = true;
 	}
