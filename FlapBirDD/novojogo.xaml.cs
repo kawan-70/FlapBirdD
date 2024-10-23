@@ -49,6 +49,8 @@ public partial class novojogo : ContentPage
 		base.OnSizeAllocated(width, height);
 		larguraJanela = width;
 		alturaJanela = height;
+		canod1.WidthRequest=150;
+		canod2.WidthRequest=150;
 	}
 
 	void GerenciaCanos()
@@ -60,6 +62,8 @@ public partial class novojogo : ContentPage
 			canod2.TranslationX = 100;
 			canod1.TranslationX = 100;
 			score++;
+			if(score % 2 == 0)
+			velocidade++;
 			LabelLP.Text = "canos: " + score.ToString("D3");
 			var alturaMax = -100;
 			var alturaMin = -canod2.HeightRequest;
@@ -92,16 +96,13 @@ public partial class novojogo : ContentPage
 
 	bool VerificaColisao()
 	{
-		if (!morto)
+		
 		{
-			if (VerificaColisaoTeto() ||
+		      return VerificaColisaoTeto() ||
 				VerificaColisaoChao() ||
 				VerificaColisaoCanoCima()||
-				VerificaColisaoCanoBaixo())
-				return true;
-
+				VerificaColisaoCanoBaixo();
 		}
-				return false;
 	}
 	private bool VerificaColisaoTeto()
 	{
@@ -140,10 +141,11 @@ public partial class novojogo : ContentPage
 	   bool VerificaColisaoCanoBaixo()
 	{
 		var posHviao = (larguraJanela/2)-(viao.WidthRequest/2);
-		var posVviao = (alturaJanela/2)-(viao.HeightRequest/2)+viao.TranslationY;
-		if (posHviao>= Math.Abs(canod2.TranslationX)-canod2.WidthRequest &&
-			posHviao<= Math.Abs(canod2.TranslationX)+canod2.WidthRequest &&
-			posVviao<= canod2.HeightRequest + canod2.TranslationY)
+		var posVviao = (alturaJanela/2) + (viao.HeightRequest/2) + viao.TranslationY;
+		var yMaxCano= canod1.HeightRequest + canod1.TranslationY + AberturaMinima;
+		if (posHviao >= Math.Abs(canod2.TranslationX) - canod2.WidthRequest &&
+			posHviao<= Math.Abs(canod2.TranslationX) + canod2.WidthRequest &&
+			posVviao >=yMaxCano)
 		{
 			return true;
 		}
