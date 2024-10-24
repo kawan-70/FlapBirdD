@@ -2,18 +2,19 @@ namespace FlapBirDD;
 
 public partial class novojogo : ContentPage
 {
-	const int gravidade = 15;
+	const int gravidade = 10;
 	const int tempoEntreFrames = 20;
 	const int maxTempoPulando = 2;
-	const int forcaPulo = 40;
-	const int AberturaMinima = 180;
+	const int forcaPulo = 20;
+	const int AberturaMinima = 220;
 	bool morto = true;
 	bool estaPulando = false;
-	double larguraJanela = 0;
-	double alturaJanela = 10;
-	int velocidade = 100;
-	int TempoPulando = 1;
+	double larguraJanela = 15;
+	double alturaJanela = 15;
+	int velocidade = 30;
+	int TempoPulando = 2;
 	int score = 0;
+	
 
 	public novojogo()
 	{
