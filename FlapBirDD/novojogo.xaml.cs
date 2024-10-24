@@ -2,17 +2,17 @@ namespace FlapBirDD;
 
 public partial class novojogo : ContentPage
 {
-	const int gravidade = 10;
+	const int gravidade = 15;
 	const int tempoEntreFrames = 20;
-	const int maxTempoPulando = 2;
-	const int forcaPulo = 20;
+	const int maxTempoPulando = 3;
+	const int forcaPulo = 25;
 	const int AberturaMinima = 220;
 	bool morto = true;
 	bool estaPulando = false;
 	double larguraJanela = 15;
 	double alturaJanela = 15;
-	int velocidade = 30;
-	int TempoPulando = 2;
+	int velocidade = 25;
+	int TempoPulando = 3;
 	int score = 0;
 	
 
@@ -65,7 +65,7 @@ public partial class novojogo : ContentPage
 			score++;
 			if(score % 2 == 0)
 			velocidade++;
-			LabelLP.Text = "canos: " + score.ToString("D3");
+			LabelLP.Text = "canos: " + score.ToString("D4");
 			var alturaMax = -100;
 			var alturaMin = -canod2.HeightRequest;
 			canod1.TranslationY = Random.Shared.Next((int)alturaMin, (int)alturaMax);
@@ -85,6 +85,8 @@ public partial class novojogo : ContentPage
 		GerenciaCanos();
 		morto = false;
 		viao.TranslationY = 0;
+		
+		
 	}
 
 	void OnGameOverClicked(object s, TappedEventArgs a)
@@ -170,4 +172,5 @@ public partial class novojogo : ContentPage
 	{
 		estaPulando = true;
 	}
+	
 }

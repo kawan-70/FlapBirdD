@@ -19,15 +19,15 @@
 
         <Image x:Name="viao"
                Source="viao.png"
-               HeightRequest="100"
-               BackgroundColor="Red"
+               HeightRequest="50"
+              
                WidthRequest="90"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
 
         <Image x:Name="canod1"
                Source="canod1.png"
-               BackgroundColor="blue"
+              
                HeightRequest="690"
                WidthRequest="90"
                HorizontalOptions="End"
@@ -37,7 +37,7 @@
                Source="canod2.png"
                HeightRequest="660"
                WidthRequest="60"
-               BackgroundColor="blue"
+             
                HorizontalOptions="End"
                VerticalOptions="End"/>
 
@@ -51,16 +51,28 @@
               VerticalOptions="Start"/>
       
 
-       <Frame x:Name="frameGameOver"
-               HorizontalOptions="Fill"
-               VerticalOptions="Fill"
-               BackgroundColor="#77000000">
-
-               <Frame.GestureRecognizers>
-               <TapGestureRecognizer Tapped="OnGameOverClicked"/>
-               </Frame.GestureRecognizers>
-               <Image Source="start.png"/>
-       </Frame>
-
-    </Grid>
+        <Frame x:Name="frameOverlay"
+           BackgroundColor="#77000000"
+           HorizontalOptions="Fill"
+           VerticalOptions="Fill">
+      <Frame.GestureRecognizers>
+        <TapGestureRecognizer Tapped="OnGameOverClicked"/>
+      </Frame.GestureRecognizers>
+      <VerticalStackLayout VerticalOptions="Center">
+        <Label x:Name="labelGameOverScore"
+              Text="Score: 00000"
+              FontSize="30"
+              Margin="0,20,20,0"
+              FontFamily="slkscre"
+              VerticalOptions="Start"
+              HorizontalOptions="Center"
+              HorizontalTextAlignment="Center"/>
+        <Image Source="tap.png"
+               Aspect="AspectFit"
+               Margin="0,200,0,0"
+               HeightRequest="150"
+               WidthRequest="300"/>
+      </VerticalStackLayout>
+    </Frame>
+  </Grid>
 </ContentPage>
