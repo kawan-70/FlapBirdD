@@ -1,4 +1,5 @@
 namespace FlapBirDD;
+using System.Media;
 
 public partial class novojogo : ContentPage
 {
@@ -172,5 +173,5 @@ public partial class novojogo : ContentPage
 	{
 		estaPulando = true;
 	}
-	
+
 }

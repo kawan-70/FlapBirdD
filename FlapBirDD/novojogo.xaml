@@ -51,7 +51,7 @@
               VerticalOptions="Start"/>
       
 
-        <Frame x:Name="frameOverlay"
+        <Frame x:Name="frameGameOver"
            BackgroundColor="#77000000"
            HorizontalOptions="Fill"
            VerticalOptions="Fill">
@@ -67,7 +67,7 @@
               VerticalOptions="Start"
               HorizontalOptions="Center"
               HorizontalTextAlignment="Center"/>
-        <Image Source="tap.png"
+        <Image Source="start.png"
                Aspect="AspectFit"
                Margin="0,200,0,0"
                HeightRequest="150"
