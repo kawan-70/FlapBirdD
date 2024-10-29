@@ -1,6 +1,4 @@
 namespace FlapBirDD;
-using System.Media;
-
 public partial class novojogo : ContentPage
 {
 	const int gravidade = 15;
@@ -35,6 +33,7 @@ public partial class novojogo : ContentPage
 			if (VerificaColisao())
 			{
 				morto = true;
+				SoundHelper.Play("morte.mp3");
 				frameGameOver.IsVisible = true;
 				break;
 			}
@@ -66,6 +65,7 @@ public partial class novojogo : ContentPage
 			score++;
 			if(score % 2 == 0)
 			velocidade++;
+			
 			LabelLP.Text = "canos: " + score.ToString("D4");
 			var alturaMax = -100;
 			var alturaMin = -canod2.HeightRequest;
@@ -78,6 +78,7 @@ public partial class novojogo : ContentPage
 	}
 	void Inicializar()
 	{
+		
 		canod1.TranslationX = -larguraJanela;
 		canod2.TranslationX = -larguraJanela;
 		viao.TranslationX = 0;
@@ -119,7 +120,8 @@ public partial class novojogo : ContentPage
 	}
 
 	bool VerificaColisaoChao()
-	{
+	{   
+		
 		var mixY = alturaJanela / 2;
 		if (viao.TranslationY >= mixY)
 			return true;
@@ -129,6 +131,7 @@ public partial class novojogo : ContentPage
 
 	bool VerificaColisaoCanoCima()
 	{
+		
 		var posHviao = (larguraJanela/2)-(viao.WidthRequest/2);
 		var posVviao = (alturaJanela/2)-(viao.HeightRequest/2)+viao.TranslationY;
 		if (posHviao>= Math.Abs(canod1.TranslationX)-canod1.WidthRequest &&
@@ -173,5 +176,6 @@ public partial class novojogo : ContentPage
 	{
 		estaPulando = true;
 	}
+	
 
 }

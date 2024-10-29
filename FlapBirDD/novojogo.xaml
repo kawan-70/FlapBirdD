@@ -20,14 +20,14 @@
         <Image x:Name="viao"
                Source="viao.png"
                HeightRequest="50"
-              
+           
                WidthRequest="90"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
 
         <Image x:Name="canod1"
                Source="canod1.png"
-              
+             
                HeightRequest="690"
                WidthRequest="90"
                HorizontalOptions="End"
@@ -37,7 +37,7 @@
                Source="canod2.png"
                HeightRequest="660"
                WidthRequest="60"
-             
+               
                HorizontalOptions="End"
                VerticalOptions="End"/>
 
@@ -59,11 +59,10 @@
         <TapGestureRecognizer Tapped="OnGameOverClicked"/>
       </Frame.GestureRecognizers>
       <VerticalStackLayout VerticalOptions="Center">
-        <Label x:Name="labelGameOverScore"
+        <Label
               Text="Score: 00000"
               FontSize="30"
               Margin="0,20,20,0"
-              FontFamily="slkscre"
               VerticalOptions="Start"
               HorizontalOptions="Center"
               HorizontalTextAlignment="Center"/>
